@@ -34,9 +34,9 @@ const HomePage = () => {
               href="https://request.sanakerdagestad.no"
               target="_blank"
               rel="noopener noreferrer"
-              className="group block p-6 bg-purple-600 rounded-lg shadow-lg hover:bg-green-500 transition-all w-72 text-center">
-              <h2 className="text-2xl font-semibold group-hover:text-white">Jellyseerr</h2>
-              <p className="text-gray-200 group-hover:text-gray-100">
+              className="group block p-6 bg-purple-600 rounded-lg shadow-lg hover:bg-purple-500 transition-all w-72 text-center">
+              <h2 className="text-2xl font-semibold text-white group-hover:text-white">Jellyseerr</h2>
+              <p className="text-purple-100 group-hover:text-purple-50">
     Request your favorite movies and shows with Jellyseerr.
   </p>
 </Link>
