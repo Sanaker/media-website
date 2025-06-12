@@ -29,10 +29,10 @@ Welcome to **Media Website** — your all-in-one platform to **stream**, **reque
    ```bash
    git clone https://github.com/Sanaker/media-website.git
 
-    Install dependencies:
-
-    npm install
-
+Install dependencies:
+```bash
+   npm install
+```
 Build the app:
 ```bash
    npm run build
