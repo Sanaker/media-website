@@ -1,3 +1,11 @@
+const io = require('@pm2/io');
+
+io.init({
+  transactions: true,  // Enable transaction tracing
+  http: true          // Enable HTTP server metrics (optional)
+});
+// This script initializes PM2 IO for monitoring and starts a Next.js application
+// using the `npm start` command. It simulates some startup tasks before launching the app.
 const { spawn } = require("child_process");
 
 const startNextJsApp = () => {
