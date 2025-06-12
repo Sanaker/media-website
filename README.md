@@ -31,12 +31,12 @@ Welcome to **Media Website** — your all-in-one platform to **stream**, **reque
 
     Install dependencies:
 
-npm install
+    npm install
 
 Build the app:
-
-npm run build
-
+```bash
+   npm run build
+```
 Start with PM2:
 
     pm2 start next-app
