@@ -1,6 +1,7 @@
 # 🎬📺 **Media Website - Your Ultimate Media Hub!**
 
 Welcome to **Media Website** — your all-in-one platform to **stream**, **request**, and **manage** your favorite movies, TV shows, and more! 🚀
+![bilde](https://github.com/user-attachments/assets/d52fc2b7-e7e2-4b05-a395-9488534d931e)
 
 ---
 
