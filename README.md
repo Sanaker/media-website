@@ -1,91 +1,60 @@
-Media Website
+# 🎬📺 **Media Website - Your Ultimate Media Hub!**
 
+Welcome to **Media Website** — your all-in-one platform to **stream**, **request**, and **manage** your favorite movies, TV shows, and more! 🚀
 
-A sleek, customizable Next.js frontend for managing and accessing your personal media services.
-Overview
+---
 
-This project is a personal media center dashboard built with Next.js and Tailwind CSS. It provides a unified interface to access various media services such as:
+## 🚀 **Features**
 
-    Emby — Your personal media server for streaming movies, TV shows, and more.
+- 🔥 **Emby:** Your personal media server for streaming movies, TV shows, and music — all in one place!
+- 🍿 **Jellyseerr:** Easily request your favorite movies and shows with a sleek and simple interface.
+- 🎯 **Seamless Experience:** Manage all your media effortlessly from one central hub.
+- 🔐 **Secure:** Runs on your own server for privacy and control.
 
-    Jellyseerr — Request and manage movies and shows easily.
+---
 
-    Ombi — User-friendly request system for your media library.
+## 📦 **Tech Stack**
 
-This dashboard is optimized for easy navigation, responsive design, and seamless integration with your self-hosted media services.
-Features
+- **Next.js** for a blazing fast React-powered frontend  
+- **PM2** for process management and uptime  
+- **Node.js** backend  
+- **Docker & GitHub Actions** for easy deployment (optional)  
+- **Prisma** for database management  
 
-    Clean, modern UI with Tailwind CSS
+---
 
-    Mobile and desktop responsive layout
+## ⚙️ **Setup & Deployment**
 
-    Easy to customize links and descriptions for your media services
+1. Clone the repo:  
+   ```bash
+   git clone https://github.com/Sanaker/media-website.git
 
-    Secure external links with noopener noreferrer and target="_blank"
-
-    Uses Next.js for performance and SEO optimization
-
-    Supports deployment with Docker, PM2, or any Node.js hosting
-
-Getting Started
-Prerequisites
-
-    Node.js (v18+ recommended)
-
-    npm or yarn
-
-    Access to your media services URLs (Emby, Jellyseerr, Ombi, etc.)
-
-Installation
-
-    Clone the repository:
-
-git clone https://github.com/Sanaker/media-website.git
-cd media-website
-
-Install dependencies:
+    Install dependencies:
 
 npm install
-# or
-yarn install
 
-Configure environment variables if needed (e.g. .env.local).
+Build the app:
 
-Run the development server:
+npm run build
 
-    npm run dev
-    # or
-    yarn dev
+Start with PM2:
 
-    Open http://localhost:3000 to see your media dashboard.
+    pm2 start next-app
 
-Deployment
+    (Optional) Use GitHub Actions for automated deployment on push to master branch! 🔄
 
-You can deploy this app using your favorite method:
+🚨 Important
 
-    PM2 to keep the app running in production.
+    Remember to add sensitive files like .env and node_modules to your .gitignore!
 
-    Docker for containerized deployment.
+    Use SSH keys for secure deployment with GitHub Actions. 🔑
 
-    GitHub Actions to automate deployment on push.
+🙌 Contributing
 
-Example PM2 start command:
+Feel free to open issues or submit PRs! Let’s make this media hub even better together! 💪
+📞 Contact
 
-pm2 start npm --name "media-website" -- run start
+Created and maintained by Sanaker — happy streaming! 🎉
 
-Customization
+⭐️ If you find this repo helpful, please star it! ⭐️
 
-Update the links and descriptions in the main page (pages/index.tsx or app/page.tsx) to point to your own media services and customize text/colors as needed.
-Contributing
-
-Contributions are welcome! Feel free to open issues or submit pull requests.
-License
-
-This project is licensed under the MIT License.
-Contact
-
-Created and maintained by Sanaker
-GitHub: Sanaker
-Website: sanakerdagestad.no
-
-If you want me to customize it further based on your repo details (like README content you currently have, or specific instructions), just share!
