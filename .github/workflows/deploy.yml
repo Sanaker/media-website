@@ -1,0 +1,37 @@
+name: Deploy Next.js app
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Build locally (optional)
+      run: |
+        npm install
+        npm run build
+
+    - name: Deploy to server
+      uses: appleboy/ssh-action@v0.1.7
+      with:
+        host: 161.35.155.32
+        username: sanaker
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          cd /home/sanaker/media-website
+          git pull origin master
+          npm install
+          npm run build
+          sudo pm2 restart next-app
