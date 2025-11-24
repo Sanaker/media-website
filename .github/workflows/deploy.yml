@@ -50,5 +50,5 @@ jobs:
             echo "Building the app..."
             npm run build
 
-            echo "Restarting app with PM2..."
-            pm2 restart next-app
+            echo "Restarting app with supervisor"
+            supervisorctl restart media-sanaker
