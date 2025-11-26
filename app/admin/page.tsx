@@ -87,6 +87,18 @@ const AdminPage = () => {
                 add or remove users.
               </p>
             </a>
+            {/* HomeAssistant */}
+            <a
+              href="https://homeassistant.sanakerdagestad.no"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-6 bg-green-600 rounded-lg shadow-lg hover:bg-green-500 transition-all w-72 text-center"
+            >
+              <h2 className="text-2xl font-semibold group-hover:text-white">Home Assistant</h2>
+              <p className="text-gray-200 group-hover:text-gray-100">
+                Manage your smart home devices and automation.
+              </p>
+            </a>
           </div>
         </section>
       </main>

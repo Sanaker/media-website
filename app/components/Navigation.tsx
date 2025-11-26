@@ -5,6 +5,7 @@ import Link from "next/link";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const satusUrl = "https://uptime.sanakerdagestad.no/status/media";
 
   return (
     <header className="fixed top-0 left-0 w-full bg-gray-800 shadow-lg z-50">
@@ -39,7 +40,7 @@ const Navigation = () => {
             Admin
           </Link>
           <a 
-            href="https://uptime.sanakerdagestad.no/status/media" 
+            href={satusUrl} 
             target="_blank" 
             rel="noopener noreferrer"
             className="hover:text-gray-300"
@@ -58,7 +59,7 @@ const Navigation = () => {
             Admin
           </Link>
           <a 
-            href="https://uptime.sanakerdagestad.no/status/media" 
+            href={satusUrl} 
             target="_blank" 
             rel="noopener noreferrer"
             className="block px-4 py-2 hover:bg-gray-700"
