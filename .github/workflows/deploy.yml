@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 22
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.7
@@ -26,10 +26,17 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/sanaker/media-website
-            git pull origin master
+            
+            # Fix Git divergent branches by resetting to remote
+            git fetch origin
+            git reset --hard origin/master
+
+            # Fix permissions to avoid build errors
+            sudo chown -R sanaker:sanaker /home/sanaker/media-website 2>/dev/null || true
 
             echo "Checking changed files..."
 
+            # Get the changed files from the last commit
             CHANGED_FILES=$(git diff --name-only HEAD@{1} HEAD)
             echo "$CHANGED_FILES"
 
@@ -40,7 +47,8 @@ jobs:
               exit 0
             fi
 
-            if git diff --name-only HEAD@{1} | grep -qE 'package(-lock)?\.json'; then
+            # Fixed: Use the same CHANGED_FILES variable for consistency
+            if echo "$CHANGED_FILES" | grep -qE 'package(-lock)?\.json'; then
               echo "Dependencies changed. Running npm install..."
               npm install
             else
@@ -48,7 +56,8 @@ jobs:
             fi
 
             echo "Building the app..."
-            npm run build
+            # Disable Next.js telemetry to prevent permission issues
+            NEXT_TELEMETRY_DISABLED=1 npm run build
 
             echo "Restarting app with supervisor"
             supervisorctl restart media-sanaker
