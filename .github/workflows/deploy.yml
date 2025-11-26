@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: 18
 
       - name: Deploy to server
         uses: appleboy/ssh-action@v0.1.7
@@ -26,33 +26,21 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/sanaker/media-website
-            git fetch origin
-            git reset --hard origin/master
-
-            # Fix permissions to avoid build errors
+            
+            # Pull changes
+            git config pull.ff only
+            git pull origin master
+            
+            # Fix permissions
             sudo chown -R sanaker:sanaker /home/sanaker/media-website 2>/dev/null || true
-
-            echo "Checking changed files..."
-
-            CHANGED_FILES=$(git diff --name-only HEAD@{1} HEAD)
-            echo "$CHANGED_FILES"
-
-            RELEVANT_PATTERNS='(\.js$|\.ts$|\.tsx$|package(-lock)?\.json|next\.config\.js|\.env)'
-
-            if ! echo "$CHANGED_FILES" | grep -qE "$RELEVANT_PATTERNS"; then
-              echo "No relevant code changes detected. Skipping build and deploy."
-              exit 0
-            fi
-
-            if git diff --name-only HEAD@{1} | grep -qE 'package(-lock)?\.json'; then
-              echo "Dependencies changed. Running npm install..."
-              npm install
-            else
-              echo "No dependency changes. Skipping npm install."
-            fi
-
-            echo "Building the app..."
-            npm run build
-
-            echo "Restarting app with supervisor"
-            supervisorctl restart media-sanaker
+            
+            # Install dependencies if needed
+            npm install
+            
+            # Build the app
+            NEXT_TELEMETRY_DISABLED=1 npm run build
+            
+            # Restart with PM2
+            pm2 reload media-sanaker
+            
+            echo "Deployment completed!"
