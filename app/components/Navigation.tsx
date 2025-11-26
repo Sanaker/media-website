@@ -38,6 +38,14 @@ const Navigation = () => {
           <Link href="/admin" className="hover:text-gray-300">
             Admin
           </Link>
+          <a
+            href="https://uptime.sanakerdagestad.no/status/media"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block px-4 py-2 hover:bg-gray-700"
+            >
+              Status
+            </a>
         </nav>
       </div>
       {/* Mobile Menu */}
