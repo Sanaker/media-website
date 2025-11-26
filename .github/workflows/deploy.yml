@@ -26,7 +26,11 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/sanaker/media-website
-            git pull origin master
+            git fetch origin
+            git reset --hard origin/master
+
+            # Fix permissions to avoid build errors
+            sudo chown -R sanaker:sanaker /home/sanaker/media-website 2>/dev/null || true
 
             echo "Checking changed files..."
 
