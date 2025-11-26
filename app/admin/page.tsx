@@ -65,14 +65,14 @@ const AdminPage = () => {
 
             {/* Webmin */}
             <a
-              href="https://homeassistant.sanakerdagestad.no"
+              href="https://webmin.sanakerdagestad.no"
               target="_blank"
               rel="noopener noreferrer"
               className="group block p-6 bg-gray-600 rounded-lg shadow-lg hover:bg-gray-500 transition-all w-72 text-center"
             >
-              <h2 className="text-2xl font-semibold group-hover:text-white">HomeAssistant</h2>
+              <h2 className="text-2xl font-semibold group-hover:text-white">Webmin</h2>
               <p className="text-gray-200 group-hover:text-gray-100">
-                Access and manage your home with ease.
+                Access and manage your server with ease.
               </p>
             </a>
             {/* Users */}
@@ -85,6 +85,18 @@ const AdminPage = () => {
               <h2 className="text-2xl font-semibold group-hover:text-white">Manage users</h2>
               <p className="text-gray-200 group-hover:text-gray-100">
                 add or remove users.
+              </p>
+            </a>
+            {/* HomeAssistant */}
+            <a
+              href="https://homeassistant.sanakerdagestad.no"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group block p-6 bg-blue-500 rounded-lg shadow-lg hover:bg-green-500 transition-all w-72 text-center"
+            >
+              <h2 className="text-2xl font-semibold group-hover:text-white">Home Assistant</h2>
+              <p className="text-gray-200 group-hover:text-gray-100">
+                Manage your smart home devices and automation.
               </p>
             </a>
           </div>
