@@ -64,7 +64,7 @@ const Navigation = () => {
             rel="noopener noreferrer"
             className="block px-4 py-2 hover:bg-gray-700"
           >
-            Status
+            Uptime
           </a>
         </nav>
       )}
