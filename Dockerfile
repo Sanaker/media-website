@@ -1,8 +1,9 @@
-# Dockerfile
+# Dockerfile (Korrekt linje)
 # --- STAGE 1: BYGGE MILJØ ---
 FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package.json yarn.lock package-lock.json ./
+# KUN KOPIER FILER FOR NPM (package.json og package-lock.json)
+COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 RUN npm run build
