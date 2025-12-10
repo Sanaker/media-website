@@ -1,0 +1,15 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  media-website:
+    container_name: media-website
+    # Forteller Docker Compose å bygge fra Dockerfile i denne mappen
+    build: . 
+    restart: unless-stopped
+    ports:
+      # Mapper port 3000 på verten til containeren.
+      - "3000:3000" 
+    environment:
+      - NODE_ENV=production
+      # Legg til dine egne miljøvariabler her hvis du har noen (f.eks. API-nøkler)
+      # - NEXT_PUBLIC_API_URL=https://ditt.api.domene.no
