@@ -1,7 +1,44 @@
 # .dockerignore
+#--------------------------------------
+# 1. GENERELT OG NODE
+#--------------------------------------
 node_modules
-.git
-.gitignore
+/.pnp
+.pnp.*
+.yarn/*
+!package.json
+!yarn.lock
+!package-lock.json
+
+#--------------------------------------
+# 2. NEXT.JS OG BUILD ARTEFAKTER (Viktig å ekskludere for å unngå caching-feil)
+#--------------------------------------
 .next
 out
-.env.local
+/build
+
+#--------------------------------------
+# 3. MILJØ OG HEMMELIGHETER (VIKTIG SIKKERHETSFILTRERING)
+#--------------------------------------
+.env
+.env.*
+.vercel
+
+#--------------------------------------
+# 4. MISC OG OS-SPESIFIKKE FILER
+#--------------------------------------
+.git
+.gitignore
+.DS_Store
+*.pem
+*.db
+*.sqlite
+# Debug logs
+*-debug.log*
+
+#--------------------------------------
+# 5. TYPESCRIPT / PRISMA
+#--------------------------------------
+*.tsbuildinfo
+.prisma/
+prisma/migrations
